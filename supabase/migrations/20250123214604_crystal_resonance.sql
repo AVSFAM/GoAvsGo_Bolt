@@ -1,0 +1,38 @@
+/*
+  # Remove test users and their data
+
+  1. Changes
+    - Remove test users from auth.users
+    - Remove associated profiles
+    - Remove associated leaderboard entries
+*/
+
+-- Remove test users' leaderboard entries
+DELETE FROM leaderboard
+WHERE user_id IN (
+  '00000000-0000-0000-0000-000000000001',
+  '00000000-0000-0000-0000-000000000002',
+  '00000000-0000-0000-0000-000000000003',
+  '00000000-0000-0000-0000-000000000004',
+  '00000000-0000-0000-0000-000000000005'
+);
+
+-- Remove test users' profiles
+DELETE FROM profiles
+WHERE user_id IN (
+  '00000000-0000-0000-0000-000000000001',
+  '00000000-0000-0000-0000-000000000002',
+  '00000000-0000-0000-0000-000000000003',
+  '00000000-0000-0000-0000-000000000004',
+  '00000000-0000-0000-0000-000000000005'
+);
+
+-- Remove test users from auth.users
+DELETE FROM auth.users
+WHERE id IN (
+  '00000000-0000-0000-0000-000000000001',
+  '00000000-0000-0000-0000-000000000002',
+  '00000000-0000-0000-0000-000000000003',
+  '00000000-0000-0000-0000-000000000004',
+  '00000000-0000-0000-0000-000000000005'
+);
